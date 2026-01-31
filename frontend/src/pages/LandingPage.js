@@ -106,7 +106,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-4 flex items-center justify-between">
         <button 
           onClick={(e) => scrollToSection(e, 'hero')} 
-          className="text-xl font-heading font-bold text-foreground cursor-pointer" 
+          className="text-xl font-heading font-bold text-foreground cursor-pointer bg-transparent border-none" 
           data-testid="logo"
         >
           Think<span className="text-primary">Fast</span>
@@ -122,13 +122,21 @@ const Navbar = () => {
               {link.label}
             </button>
           ))}
-          <button onClick={(e) => scrollToSection(e, 'contacto')} data-testid="nav-contacto">
-            <Button className="btn-primary rounded-none">Contactar</Button>
-          </button>
+          <Button 
+            onClick={(e) => scrollToSection(e, 'contacto')} 
+            className="btn-primary rounded-none"
+            data-testid="nav-contacto"
+          >
+            Contactar
+          </Button>
         </div>
-        <button onClick={(e) => scrollToSection(e, 'contacto')} className="md:hidden" data-testid="nav-contacto-mobile">
-          <Button className="btn-primary rounded-none text-sm px-4 py-2">Contactar</Button>
-        </button>
+        <Button 
+          onClick={(e) => scrollToSection(e, 'contacto')} 
+          className="md:hidden btn-primary rounded-none text-sm px-4 py-2"
+          data-testid="nav-contacto-mobile"
+        >
+          Contactar
+        </Button>
       </div>
     </motion.nav>
   );
@@ -173,17 +181,22 @@ const HeroSection = () => {
               Diseñamos y desarrollamos productos digitales rápidos, modernos y orientados a conversión.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <button onClick={(e) => scrollToSection(e, 'contacto')} data-testid="hero-cta-primary">
-                <Button className="btn-primary rounded-none text-base px-8 py-6 w-full sm:w-auto">
-                  Solicitar una consulta
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </button>
-              <button onClick={(e) => scrollToSection(e, 'servicios')} data-testid="hero-cta-secondary">
-                <Button variant="outline" className="btn-secondary rounded-none text-base px-8 py-6 w-full sm:w-auto">
-                  Ver servicios
-                </Button>
-              </button>
+              <Button 
+                onClick={(e) => scrollToSection(e, 'contacto')} 
+                className="btn-primary rounded-none text-base px-8 py-6 w-full sm:w-auto"
+                data-testid="hero-cta-primary"
+              >
+                Solicitar una consulta
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+              <Button 
+                onClick={(e) => scrollToSection(e, 'servicios')} 
+                variant="outline" 
+                className="btn-secondary rounded-none text-base px-8 py-6 w-full sm:w-auto"
+                data-testid="hero-cta-secondary"
+              >
+                Ver servicios
+              </Button>
             </div>
           </motion.div>
         </div>
@@ -462,12 +475,14 @@ const CTASection = () => {
             <p className="text-secondary-foreground text-lg mb-10 max-w-2xl mx-auto">
               Contanos qué necesitás y te respondemos con una propuesta clara en menos de 48 horas.
             </p>
-            <button onClick={(e) => scrollToSection(e, 'contacto')} data-testid="cta-button">
-              <Button className="btn-primary rounded-none text-lg px-10 py-6">
-                Hablemos
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </button>
+            <Button 
+              onClick={(e) => scrollToSection(e, 'contacto')} 
+              className="btn-primary rounded-none text-lg px-10 py-6"
+              data-testid="cta-button"
+            >
+              Hablemos
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
           </div>
         </motion.div>
       </div>
