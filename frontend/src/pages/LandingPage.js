@@ -232,7 +232,7 @@ const services = [
 
 const ServicesSection = () => {
   return (
-    <AnimatedSection className="section-container py-24 md:py-32" id="servicios">
+    <AnimatedSection className="section-container py-24 md:py-32 scroll-mt-20" id="servicios">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <motion.div variants={fadeUp} className="mb-16">
           <p className="text-primary font-medium text-sm tracking-wider uppercase mb-3">Servicios</p>
@@ -292,7 +292,7 @@ const processSteps = [
 
 const ProcessSection = () => {
   return (
-    <AnimatedSection className="section-container py-24 md:py-32 bg-secondary/30" id="proceso">
+    <AnimatedSection className="section-container py-24 md:py-32 bg-secondary/30 scroll-mt-20" id="proceso">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <motion.div variants={fadeUp} className="mb-16">
           <p className="text-primary font-medium text-sm tracking-wider uppercase mb-3">Proceso</p>
@@ -359,7 +359,7 @@ const benefits = [
 
 const WhyUsSection = () => {
   return (
-    <AnimatedSection className="section-container py-24 md:py-32" id="nosotros">
+    <AnimatedSection className="section-container py-24 md:py-32 scroll-mt-20" id="nosotros">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <motion.div variants={fadeUp} className="lg:col-span-5">
@@ -415,7 +415,7 @@ const cases = [
 
 const CasesSection = () => {
   return (
-    <AnimatedSection className="section-container py-24 md:py-32 bg-secondary/30" id="casos">
+    <AnimatedSection className="section-container py-24 md:py-32 bg-secondary/30 scroll-mt-20" id="casos">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <motion.div variants={fadeUp} className="mb-16">
           <p className="text-primary font-medium text-sm tracking-wider uppercase mb-3">Portfolio</p>
@@ -526,7 +526,7 @@ const ContactSection = () => {
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
   return (
-    <AnimatedSection className="section-container py-24 md:py-32 bg-secondary/30" id="contacto">
+    <AnimatedSection className="section-container py-24 md:py-32 bg-secondary/30 scroll-mt-20" id="contacto">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           <motion.div variants={fadeUp}>
