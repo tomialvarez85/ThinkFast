@@ -59,6 +59,22 @@ const AnimatedSection = ({ children, className = '' }) => {
   );
 };
 
+// Scroll to section helper
+const scrollToSection = (e, sectionId) => {
+  e.preventDefault();
+  const element = document.getElementById(sectionId);
+  if (element) {
+    const offset = 80; // navbar height
+    const elementPosition = element.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - offset;
+    
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    });
+  }
+};
+
 // Navigation
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -71,6 +87,13 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const navLinks = [
+    { id: 'servicios', label: 'Servicios' },
+    { id: 'proceso', label: 'Proceso' },
+    { id: 'nosotros', label: 'Nosotros' },
+    { id: 'casos', label: 'Casos' },
+  ];
+
   return (
     <motion.nav
       initial={{ y: -100 }}
@@ -81,21 +104,31 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-4 flex items-center justify-between">
-        <a href="#hero" className="text-xl font-heading font-bold text-foreground" data-testid="logo">
+        <button 
+          onClick={(e) => scrollToSection(e, 'hero')} 
+          className="text-xl font-heading font-bold text-foreground cursor-pointer" 
+          data-testid="logo"
+        >
           Think<span className="text-primary">Fast</span>
-        </a>
+        </button>
         <div className="hidden md:flex items-center gap-8">
-          <a href="#servicios" className="text-secondary-foreground hover:text-foreground transition-colors text-sm" data-testid="nav-servicios">Servicios</a>
-          <a href="#proceso" className="text-secondary-foreground hover:text-foreground transition-colors text-sm" data-testid="nav-proceso">Proceso</a>
-          <a href="#nosotros" className="text-secondary-foreground hover:text-foreground transition-colors text-sm" data-testid="nav-nosotros">Nosotros</a>
-          <a href="#casos" className="text-secondary-foreground hover:text-foreground transition-colors text-sm" data-testid="nav-casos">Casos</a>
-          <a href="#contacto" data-testid="nav-contacto">
+          {navLinks.map((link) => (
+            <button
+              key={link.id}
+              onClick={(e) => scrollToSection(e, link.id)}
+              className="text-secondary-foreground hover:text-foreground transition-colors text-sm cursor-pointer bg-transparent border-none"
+              data-testid={`nav-${link.id}`}
+            >
+              {link.label}
+            </button>
+          ))}
+          <button onClick={(e) => scrollToSection(e, 'contacto')} data-testid="nav-contacto">
             <Button className="btn-primary rounded-none">Contactar</Button>
-          </a>
+          </button>
         </div>
-        <a href="#contacto" className="md:hidden" data-testid="nav-contacto-mobile">
+        <button onClick={(e) => scrollToSection(e, 'contacto')} className="md:hidden" data-testid="nav-contacto-mobile">
           <Button className="btn-primary rounded-none text-sm px-4 py-2">Contactar</Button>
-        </a>
+        </button>
       </div>
     </motion.nav>
   );
