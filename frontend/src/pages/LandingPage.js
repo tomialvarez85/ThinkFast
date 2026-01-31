@@ -173,17 +173,17 @@ const HeroSection = () => {
               Diseñamos y desarrollamos productos digitales rápidos, modernos y orientados a conversión.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="#contacto" data-testid="hero-cta-primary">
+              <button onClick={(e) => scrollToSection(e, 'contacto')} data-testid="hero-cta-primary">
                 <Button className="btn-primary rounded-none text-base px-8 py-6 w-full sm:w-auto">
                   Solicitar una consulta
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
-              </a>
-              <a href="#servicios" data-testid="hero-cta-secondary">
+              </button>
+              <button onClick={(e) => scrollToSection(e, 'servicios')} data-testid="hero-cta-secondary">
                 <Button variant="outline" className="btn-secondary rounded-none text-base px-8 py-6 w-full sm:w-auto">
                   Ver servicios
                 </Button>
-              </a>
+              </button>
             </div>
           </motion.div>
         </div>
@@ -462,12 +462,12 @@ const CTASection = () => {
             <p className="text-secondary-foreground text-lg mb-10 max-w-2xl mx-auto">
               Contanos qué necesitás y te respondemos con una propuesta clara en menos de 48 horas.
             </p>
-            <a href="#contacto" data-testid="cta-button">
+            <button onClick={(e) => scrollToSection(e, 'contacto')} data-testid="cta-button">
               <Button className="btn-primary rounded-none text-lg px-10 py-6">
                 Hablemos
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-            </a>
+            </button>
           </div>
         </motion.div>
       </div>
@@ -635,19 +635,19 @@ const Footer = () => {
             <h4 className="font-heading font-semibold text-foreground mb-4">Links</h4>
             <ul className="space-y-3">
               <li>
-                <a href="#servicios" className="text-secondary-foreground hover:text-primary transition-colors" data-testid="footer-servicios">
+                <button onClick={(e) => scrollToSection(e, 'servicios')} className="text-secondary-foreground hover:text-primary transition-colors bg-transparent border-none cursor-pointer" data-testid="footer-servicios">
                   Servicios
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#proceso" className="text-secondary-foreground hover:text-primary transition-colors" data-testid="footer-proceso">
+                <button onClick={(e) => scrollToSection(e, 'proceso')} className="text-secondary-foreground hover:text-primary transition-colors bg-transparent border-none cursor-pointer" data-testid="footer-proceso">
                   Proceso
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#contacto" className="text-secondary-foreground hover:text-primary transition-colors" data-testid="footer-contacto">
+                <button onClick={(e) => scrollToSection(e, 'contacto')} className="text-secondary-foreground hover:text-primary transition-colors bg-transparent border-none cursor-pointer" data-testid="footer-contacto">
                   Contacto
-                </a>
+                </button>
               </li>
             </ul>
           </div>
