@@ -2,10 +2,12 @@ import requests
 import sys
 from datetime import datetime
 import json
+import os
 
 class ThinkFastAPITester:
-    def __init__(self, base_url="https://biz-tech-solutions-1.preview.emergentagent.com"):
-        self.base_url = base_url
+    def __init__(self, base_url=None):
+        # Usá BASE_URL para apuntar a otro servidor, p. ej. BASE_URL=https://tudominio.com
+        self.base_url = (base_url or os.environ.get("BASE_URL", "http://localhost:8001")).rstrip("/")
         self.tests_run = 0
         self.tests_passed = 0
         self.failed_tests = []
@@ -137,13 +139,38 @@ class ThinkFastAPITester:
             data=test_data
         )
 
-    def test_get_contact_messages(self):
-        """Test getting contact messages (admin endpoint)"""
+    def test_get_contact_messages_requires_token(self):
+        """Listing messages without a token must not be allowed (401, or 404 if disabled)"""
+        url = f"{self.base_url}/api/contact"
+        self.tests_run += 1
+        print("\n🔍 Testing Get Contact Messages without token...")
+        try:
+            response = requests.get(url, timeout=10)
+        except Exception as e:
+            self.failed_tests.append({'test': 'Get Contact Messages without token', 'error': str(e)})
+            print(f"❌ Failed - Error: {e}")
+            return False
+        if response.status_code in (401, 404):
+            self.tests_passed += 1
+            print(f"✅ Passed - Status: {response.status_code}")
+            return True
+        print(f"❌ Failed - Expected 401/404, got {response.status_code}")
+        self.failed_tests.append({'test': 'Get Contact Messages without token',
+                                  'actual': response.status_code})
+        return False
+
+    def test_get_contact_messages_with_token(self):
+        """Listing messages with ADMIN_TOKEN (only if set in the environment)"""
+        token = os.environ.get("ADMIN_TOKEN")
+        if not token:
+            print("\n⏭️  Skipping authorized listing (ADMIN_TOKEN not set)")
+            return None
         return self.run_test(
-            "Get Contact Messages",
+            "Get Contact Messages with token",
             "GET",
             "api/contact",
-            200
+            200,
+            headers={'X-Admin-Token': token}
         )
 
 def main():
@@ -167,7 +194,8 @@ def main():
     
     # Test admin endpoints
     print("\n👨‍💼 Testing Admin Endpoints...")
-    tester.test_get_contact_messages()
+    tester.test_get_contact_messages_requires_token()
+    tester.test_get_contact_messages_with_token()
     
     # Print results
     print("\n" + "=" * 50)

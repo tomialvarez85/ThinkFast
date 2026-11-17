@@ -17,6 +17,31 @@
   pointer-events: auto;
 }
 
+/* Fondo liviano del hero: se ve en celulares y mientras carga la escena 3D */
+.hero-fallback {
+  position: absolute;
+  inset: 0;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 50% at 80% 30%, rgba(124, 58, 237, 0.28) 0%, rgba(124, 58, 237, 0) 70%),
+    radial-gradient(ellipse 40% 40% at 15% 80%, rgba(109, 40, 217, 0.15) 0%, rgba(109, 40, 217, 0) 70%),
+    #050505;
+}
+
+.hero-fallback::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 80%);
+}
+
 .hero-content {
   position: relative;
   z-index: 10;

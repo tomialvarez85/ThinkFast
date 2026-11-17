@@ -77,11 +77,10 @@ agenthub/agents/youtube/db
 .cache/
 
 # Mobile development
-android-sdk/ -e 
-# Environment files
+android-sdk/
+
+# Environment files (los .env.example sí se suben)
+.env
 *.env
 *.env.*
--e 
-# Environment files
-*.env
-*.env.*
+!.env.example
