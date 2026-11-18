@@ -254,7 +254,7 @@ const HeroSection = () => {
               <span className="text-primary">resultados.</span>
             </h1>
             <p
-              className="text-lg md:text-xl text-secondary-foreground mb-10 max-w-2xl"
+              className="hero-subtitle text-lg md:text-xl font-medium mb-10 max-w-2xl"
               data-testid="hero-subtitle"
             >
               Diseñamos y desarrollamos productos digitales rápidos, modernos y orientados a conversión.
