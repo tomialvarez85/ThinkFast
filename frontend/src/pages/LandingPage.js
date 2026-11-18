@@ -30,7 +30,7 @@ const API = `${BACKEND_URL}/api`;
 
 // Datos de contacto y redes. Completá las URLs de redes cuando las tengas:
 // las que queden vacías no se muestran.
-const CONTACT_EMAIL = 'tomialvarez78@gmail.com';
+const CONTACT_EMAIL = 'agencythinkfast@gmail.com';
 const WHATSAPP_NUMBER = '5493543602061';
 const SOCIAL_LINKS = [
   { id: 'linkedin', label: 'LinkedIn', url: '' },

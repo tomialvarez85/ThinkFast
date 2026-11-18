@@ -15,7 +15,7 @@ Desarrollar una landing page moderna, profesional y minimalista para Think Fast,
 - Fondo 3D interactivo con Spline
 - Formulario de contacto funcional
 - Botón WhatsApp: +54 9 3543602061
-- Email: tomialvarez78@gmail.com
+- Email: agencythinkfast@gmail.com
 - Totalmente responsive
 - Animaciones sutiles con Framer Motion
 
